@@ -1,0 +1,80 @@
+{
+  "name": "wan27",
+  "displayName": "Wan27 — AI Image & Video Generation + MCP Helper",
+  "description": "Official VS Code & Cursor extension for Wan27 (https://wan2-7.io/): configure MCP servers, inspect account balance, estimate credit costs, and submit AI image/video generation tasks.",
+  "version": "0.1.0",
+  "publisher": "NotUsingGithub",
+  "license": "MIT",
+  "icon": "icon.png",
+  "homepage": "https://wan2-7.io/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NotUsingGithub/wan27-vscode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NotUsingGithub/wan27-vscode/issues"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "AI",
+    "Other",
+    "Snippets"
+  ],
+  "keywords": [
+    "wan27",
+    "wan2.7",
+    "mcp",
+    "ai video generator",
+    "ai image generator",
+    "cursor",
+    "claude"
+  ],
+  "activationEvents": [
+    "onCommand:wan27.insertMcpConfig",
+    "onCommand:wan27.estimateCredits",
+    "onCommand:wan27.checkAccount",
+    "onCommand:wan27.openDocs",
+    "onCommand:wan27.insertSdkSnippet"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "wan27.insertMcpConfig",
+        "title": "Wan27: Insert MCP Server Configuration (Cursor / Claude / VS Code)"
+      },
+      {
+        "command": "wan27.checkAccount",
+        "title": "Wan27: Check Account Eligibility & Credit Balance"
+      },
+      {
+        "command": "wan27.estimateCredits",
+        "title": "Wan27: Estimate Generation Credit Cost (Dry Run)"
+      },
+      {
+        "command": "wan27.insertSdkSnippet",
+        "title": "Wan27: Insert Idempotent API Generation Snippet"
+      },
+      {
+        "command": "wan27.openDocs",
+        "title": "Wan27: Open Official Website, MCP Guide, CLI & Pricing"
+      }
+    ],
+    "configuration": {
+      "title": "Wan27",
+      "properties": {
+        "wan27.defaultModelId": {
+          "type": "string",
+          "default": "wan27-text-to-video",
+          "description": "Default Wan27 model ID used when estimating credits or inserting API snippets."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "test": "node --test test/extension.test.js",
+    "package": "npx --yes @vscode/vsce package --no-dependencies"
+  }
+}
